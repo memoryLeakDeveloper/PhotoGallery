@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_photos">
+
+    <fragment
+        android:id="@+id/nav_photos"
+        android:name="com.example.photogallery.ui.fragments.main.MainFragment"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/authorizationFragment"
+        android:name="com.example.photogallery.ui.fragments.authorization.AuthorizationFragment"
+        android:label="AuthorizationFragment" />
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="com.example.photogallery.ui.fragments.map.MapFragment"
+        android:label="MapFragment" />
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.example.photogallery.ui.fragments.camera.CameraFragment"
+        android:label="CameraFragment" />
+
+</navigation>
