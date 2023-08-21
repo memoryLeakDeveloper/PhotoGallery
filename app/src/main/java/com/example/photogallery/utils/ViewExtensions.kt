@@ -4,6 +4,14 @@ import android.content.Context
 import android.os.SystemClock
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
+import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.example.photogallery.R
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 fun View.toGone() {
     this.visibility = View.GONE
@@ -45,3 +53,12 @@ fun View.setOnSafeClickListener(onSafeClick: (View) -> Unit) {
         onSafeClick(v)
     })
 }
+
+fun Long.toDmyString() = SimpleDateFormat("dd.MM.yyy", Locale.ENGLISH).format(this) ?: ""
+
+fun ImageView.setPhoto(url: String) {
+    Glide.with(context).load(url).fitCenter()
+        .placeholder(ContextCompat.getDrawable(context, R.drawable.placeholder))
+        .transform(CenterCrop(), RoundedCorners(context.convertPxToDp(10F))).into(this)
+}
+

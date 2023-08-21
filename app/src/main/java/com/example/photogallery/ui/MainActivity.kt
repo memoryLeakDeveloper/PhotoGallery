@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         val header = binding.navigationView.getHeaderView(0)
-        header.findViewById<TextView>(R.id.tv_user_id).text = prefStore.userId
         supportActionBar?.title = ""
         navController.addOnDestinationChangedListener { _, destination, _ ->
             supportActionBar?.title = ""
@@ -63,13 +62,14 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 else -> {
+                    header.findViewById<TextView>(R.id.tv_user_id).text = prefStore.login
                     binding.fab.toVisible()
                     binding.toolbar.toVisible()
                 }
             }
-//        if (prefStore.token.isBlank())
-//            navController.navigate(R.id.authorizationFragment)
         }
+        if (prefStore.token.isBlank())
+            navController.navigate(R.id.authorizationFragment)
 
     }
 

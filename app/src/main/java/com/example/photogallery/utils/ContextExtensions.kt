@@ -1,38 +1,11 @@
 package com.example.photogallery.utils
 
-import android.Manifest
-import android.app.Activity
 import android.content.Context
-import android.content.pm.PackageManager
-import androidx.activity.result.ActivityResultLauncher
-import androidx.core.app.ActivityCompat
+import android.widget.Toast
+import androidx.annotation.StringRes
 
-fun Context.checkAndVerifyFineLocationPermissions(requestPermissionLauncher: ActivityResultLauncher<String>): Boolean {
-    val permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-    if (permission != PackageManager.PERMISSION_GRANTED) {
-        // We don't have permission so prompt the user
-        requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-        return false
-    }
-    return true
-}
+fun Context.showToastShort(text: String) = Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 
-fun Context.checkAndVerifyCoarseLocationPermissions(requestPermissionLauncher: ActivityResultLauncher<String>): Boolean {
-    val permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-    if (permission != PackageManager.PERMISSION_GRANTED) {
-        // We don't have permission so prompt the user
-        requestPermissionLauncher.launch(Manifest.permission.ACCESS_COARSE_LOCATION)
-        return false
-    }
-    return true
-}
+fun Context.showToastShort(@StringRes textRes: Int) = Toast.makeText(this, getString(textRes), Toast.LENGTH_SHORT).show()
 
-fun Activity.checkAndVerifyCameraPermissions(requestPermissionLauncher: ActivityResultLauncher<String>): Boolean {
-    val permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-    if (permission != PackageManager.PERMISSION_GRANTED) {
-        // We don't have permission so prompt the user
-        requestPermissionLauncher.launch(Manifest.permission.CAMERA)
-        return false
-    }
-    return true
-}
+fun Context.convertPxToDp(px: Float) = (px * resources.displayMetrics.density).toInt()

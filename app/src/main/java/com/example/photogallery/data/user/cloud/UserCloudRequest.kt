@@ -1,8 +1,8 @@
-package com.example.photogallery.data.authorization.login.cloud
+package com.example.photogallery.data.user.cloud
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginUserCloud(
+data class UserCloudRequest(
     @SerializedName("login") val login: String,
     @SerializedName("password") val password: String,
 )

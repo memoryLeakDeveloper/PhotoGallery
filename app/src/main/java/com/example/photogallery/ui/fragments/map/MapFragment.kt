@@ -1,29 +1,17 @@
 package com.example.photogallery.ui.fragments.map
 
-import android.annotation.SuppressLint
-import android.content.Context
-import android.location.Geocoder
-import android.location.Location
-import android.location.LocationManager
 import android.os.Bundle
 import android.view.View
-import androidx.activity.result.contract.ActivityResultContracts
 import com.example.photogallery.R
 import com.example.photogallery.core.BaseFragment
 import com.example.photogallery.databinding.FragmentMapBinding
-import com.example.photogallery.utils.bugger
-import com.example.photogallery.utils.checkAndVerifyCoarseLocationPermissions
-import com.example.photogallery.utils.checkAndVerifyFineLocationPermissions
-import com.google.android.gms.location.LocationServices
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.runtime.image.ImageProvider
-import java.util.Locale
 
 class MapFragment : BaseFragment<FragmentMapBinding>() {
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

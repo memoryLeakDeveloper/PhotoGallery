@@ -15,4 +15,10 @@
     <string name="settings">Settings</string>
     <string name="require_permissions_desc">App can\'t access the camera or location on your device.\nPlease give access in Settings.</string>
 
+    <string name="empty_fields">Fill empty fields</string>
+    <string name="passwords_mismatch">Password mismatch</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="server_error">Server error</string>
+    <string name="check_internet_connection">Check internet connection</string>
+
 </resources>
